@@ -1,5 +1,7 @@
+#This is the base profile for all nodes
 class profile::base {
 
-  #the base profile should include component modules that will be on all nodes
+  include profile::base::hosts
+  include profile::app::puppet::agent
 
 }
