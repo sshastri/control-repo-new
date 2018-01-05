@@ -1,0 +1,2 @@
+---
+profile::app::puppet::agent::server: 10-32-174-224.rfc1918.puppetlabs.net
