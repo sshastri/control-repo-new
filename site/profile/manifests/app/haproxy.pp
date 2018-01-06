@@ -3,6 +3,12 @@ class profile::app::haproxy {
   class { 'haproxy':
     defaults_options  => {
       'timeout' => [
+        'http-request 10s',
+        'queue 1m',
+        'connect 10s',
+        'client 1m',
+        'server 1m',
+        'check 10s',
         'tunnel 15m'
       ],
     },
