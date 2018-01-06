@@ -15,5 +15,6 @@ class profile::app::puppet::compilemaster {
     server_names      => $facts['hostname'],
     ipaddresses       => $facts['ipaddress'],
     ports             => '8142',
+    options           => 'check',
   }
 }

@@ -1,6 +1,16 @@
 class profile::app::haproxy {
 
   include ::haproxy
+
+  class { 'haproxy':
+    default_options => {
+      'timeout' => [
+        'tunnel 15m'
+      ],
+    },
+    merge_options => true,
+  }
+
   #Puppet agent connections
   haproxy::listen { 'puppet00':
     ipaddress => $facts['ipaddress'],
@@ -12,6 +22,9 @@ class profile::app::haproxy {
     ipaddress => $facts['ipaddress'],
     ports     => '8142',
     options   => {
+      'option'  => [
+        'tcplog',
+      ],
       'balance' => 'leastconn',
     },
   }
