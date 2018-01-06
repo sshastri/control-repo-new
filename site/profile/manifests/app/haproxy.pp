@@ -1,12 +1,12 @@
 class profile::app::haproxy {
 
   class { 'haproxy':
-    default_options => {
+    defaults_options  => {
       'timeout' => [
         'tunnel 15m'
       ],
     },
-    merge_options => true,
+    merge_options     => true,
   }
 
   #Puppet agent connections
