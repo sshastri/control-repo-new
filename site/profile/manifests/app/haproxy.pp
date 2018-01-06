@@ -1,7 +1,5 @@
 class profile::app::haproxy {
 
-  include ::haproxy
-
   class { 'haproxy':
     default_options => {
       'timeout' => [
