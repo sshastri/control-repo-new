@@ -19,10 +19,15 @@ class profile::app::puppet::agent {
     default => lookup('puppet_mom'),
   }
 
+  $puppet_config = $facts['os']['family'] ? {
+    'windows' => 'C:/ProgramData/PuppetLabs/puppet/etc/puppet.conf',
+    default   => '/etc/puppetlabs/puppet/puppet.conf',
+  }
+
   # Set the server setting in puppet.conf
   ini_setting { 'puppet agent server setting':
     ensure  => present,
-    path    => '/etc/puppetlabs/puppet/puppet.conf',
+    path    => $puppet_config,
     section => 'main',
     setting => 'server',
     value   => $puppet_agent_server,

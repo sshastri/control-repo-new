@@ -6,6 +6,7 @@ mod "puppetlabs/inifile",     '2.1.1'
 mod "puppetlabs/stdlib",      '4.24.0'
 mod 'puppetlabs-concat',  '4.1.1'
 mod 'puppetlabs-haproxy', '2.0.1'
+mod 'puppetlabs-sqlserver', '2.1.1'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples

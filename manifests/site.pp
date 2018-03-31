@@ -33,8 +33,10 @@ node /^pe-ha-cm/ {
   include role::puppet::compilemaster
 }
 
+node 's1vicbxb53aesll.delivery.puppetlabs.net' {
+  include role::database_server
+}
+
 node default {
-
   include profile::base
-
 }
