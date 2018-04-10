@@ -1,12 +1,28 @@
 ---
 version: 5
-
-defaults:
-  datadir: "data"
+defaults:  # Used for all levels unless specified at hierarchy 
+  datadir: data         # This path is relative to hiera.yaml's directory.
+  lookup_key: eyaml_lookup_key 
+  options:
+    pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
+    pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
 
 hierarchy:
-  - name: 'Yaml backend'
-    data_hash: yaml_data
-    paths:
-      - "nodes/%{trusted.certname}.yaml"
-      - 'common.yaml'
+  - name: "Per-node data"                   # Unique human-readable name.
+    path: "nodes/%{trusted.certname}.yaml"  # File path, relative to datadir.
+                                   # ^^^ IMPORTANT: include the file extension!
+
+  - name: "Per-datacenter business group data" # Uses custom facts.
+    path: "location/%{facts.whereami}/%{facts.group}.yaml"
+
+  - name: "Global business group data"
+    path: "groups/%{facts.group}.yaml"
+
+  - name: "Per-datacenter secret data (encrypted)"
+    path: "secrets/%{facts.whereami}.eyaml"
+
+  - name: "Per-OS defaults"
+    path: "os/%{facts.os.family}.yaml"
+
+  - name: "Common data"
+    path: "common.yaml"
