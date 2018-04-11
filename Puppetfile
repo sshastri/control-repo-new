@@ -8,6 +8,10 @@ mod 'puppetlabs-concat',  '4.1.1'
 mod 'puppetlabs-haproxy', '2.0.1'
 mod 'puppetlabs-sqlserver', '2.1.1'
 
+mod 'puppetlabs-puppetserver_gem', '1.0.0'
+mod 'crayfishx-firewalld', '3.4.0'
+
+
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
 #mod 'apache',
