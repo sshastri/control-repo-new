@@ -22,7 +22,8 @@ class profile::workstation::windows::puppet_developer {
   $dev_packages.each | String $pkg | {
     if !defined( Package[$pkg] ) {
       package { $pkg :
-        ensure =>  present,
+        ensure   => present,
+        provider => 'chocolatey',
       }
     }
   }
