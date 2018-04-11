@@ -12,11 +12,13 @@ puppet_enterprise::profile::master::java_args:
   Xmx: '2048m'
   Xms: '2048m'
 #Puppet Server Settings
-profile::app::puppet::agent::server: puppet.shobhna.com
-puppet_mom: 10-32-174-224.rfc1918.puppetlabs.net
+#profile::app::puppet::agent::server: puppet.shobhna.com
+profile::app::puppet::agent::server: pe-201735-master.puppetdebug.vlan
+puppet_mom: pe-201735-master.puppetdebug.vlan
 # This setting ensures new agents will talk to the load balancer
 # and not directly to a master. Updates the install script
-pe_repo::compile_master_pool_address: puppet.shobhna.com
+#pe_repo::compile_master_pool_address: puppet.shobhna.com
+pe_repo::compile_master_pool_address: pe-201735-master.puppetdebug.vlan
 # R10K options
 puppet_enterprise::profile::master::code_manager_auto_configure: true
 puppet_enterprise::profile::master::r10k_remote: https://github.com/sshastri/control-repo.git
