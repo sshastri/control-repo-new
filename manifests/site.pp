@@ -39,4 +39,5 @@ node 's1vicbxb53aesll.delivery.puppetlabs.net' {
 
 node default {
   include profile::base
+  notify { 'Using the control-repo-new repository' : }
 }
